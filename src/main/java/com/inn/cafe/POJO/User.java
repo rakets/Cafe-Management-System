@@ -7,12 +7,15 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
 
+@NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email=:email")
+
 @Data
 @Entity
 @DynamicUpdate
 @DynamicInsert
 @Table(name = "user")
 public class User implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -35,5 +38,25 @@ public class User implements Serializable {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "role")
+    private String role;
 
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//    public void setContactNumber(String contactNumber) {
+//        this.contactNumber = contactNumber;
+//    }
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 }
